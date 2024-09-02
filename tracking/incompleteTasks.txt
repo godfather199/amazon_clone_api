@@ -1,0 +1,24 @@
+**product.Controller.ts
+  1- 'seller' property should be extracted from req.user
+  2- Add 'new_Product' to the 'seller' document
+  3- Extract sellerId from req.user and then fetch products
+
+
+
+
+**product.route.ts
+  1- '/add-product' should have a middleware for verifying cookies
+  2- add rate-blocker functionality in '/add-product'
+
+
+**app.ts
+  1- Add winston functionality
+
+
+**cart.route.ts
+  1- Create a middleware for extracting userId from jwt token
+
+
+  tshirt => 66c625306ec4403b2a1ce921
+  iphone => 66c5d9a4957867fd8f768246
+
