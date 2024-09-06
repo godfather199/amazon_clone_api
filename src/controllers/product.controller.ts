@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express"
-import { create_Product_Service, featured_Products_Service, product_By_Id_Service, products_By_SellerId, upload_Image_Service } from "../services/product.service";
+import { category_Filter_Service, create_Product_Service, featured_Products_Service, product_By_Id_Service, products_By_SellerId, upload_Image_Service } from "../services/product.service";
 import { APP_ERROR_MESSAGE, HTTP_RESPONSE_CODE } from "../constants/constant";
 import { ObjectId } from "mongodb";
 import { PRODUCT_RESPONSE_MESSAGE } from "../constants/product.constant";
@@ -99,6 +99,27 @@ export const product_By_Id = async (
     });
   } catch (error) {
     next(error);
+  }
+};
+
+
+
+export const category_Filter = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const {category} = req.query
+
+  try {
+    const products = await category_Filter_Service(category as string)
+
+    res.status(HTTP_RESPONSE_CODE.SUCCESS).json({
+      msg: PRODUCT_RESPONSE_MESSAGE.categoryProduct,
+      products
+    })
+  } catch (error) {
+    next(error)
   }
 };
 

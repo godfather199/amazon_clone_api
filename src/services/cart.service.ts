@@ -8,13 +8,14 @@ import { CartType } from '../types/cart.type';
 export const get_User_Cart_Service = async (
   userId: ObjectId,
   next: NextFunction
-) => {
+): Promise<CartType | null> => {
   try {
-    const user_Cart = await Cart.findOne({ ownerId: userId });
+    const user_Cart: CartType | null = await Cart.findOne({ ownerId: userId });
 
-    return user_Cart;
+    return user_Cart
   } catch (error) {
     next(error);
+    return null
   }
 };
 
@@ -36,13 +37,13 @@ export const create_New_Cart_Service = async (
 
 
 export const update_Cart_Quantity_Service = async (
-  updated_Cart: CartType,
+  updated_Cart: CartType | null,
   next: NextFunction
 ) => {
   try {
     const new_Updated_Cart = await Cart.findByIdAndUpdate(
-      updated_Cart._id,
-      updated_Cart,
+      updated_Cart!._id,
+      updated_Cart!,
       { new: true }
     );
 

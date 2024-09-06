@@ -68,3 +68,25 @@ export const validateRegisterRequest = [
 
   handleValidationErrors,
 ];
+
+
+
+export const validateLoginRequest = [
+  body("email")
+    .trim()
+    .notEmpty()
+    .withMessage("Email must not be empty")
+    .isString()
+    .withMessage("Email must be a string")
+    .escape(),
+    
+  body("password")
+    .trim()
+    .notEmpty()
+    .withMessage("Password must not be empty")
+    .isString()
+    .withMessage("Password must be a string")
+    .escape(),
+    
+    handleValidationErrors
+]

@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import { UserDocument, UserModel, UserType } from '../types/user.type'
 import validator from 'validator';
 import bcrypt from 'bcryptjs'
+import { HttpException } from '../exceptions/exception';
+import { APP_ERROR_MESSAGE, HTTP_RESPONSE_CODE } from '../constants/constant';
 
 
 const {ObjectId} = Schema.Types
@@ -32,8 +34,9 @@ const userSchema = new Schema<UserDocument, UserModel>({
     minlength: 8,
     validate(value: string) {
       if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
-        throw new Error(
-          "Password must contain at least one letter and one number"
+        throw new HttpException(
+          HTTP_RESPONSE_CODE.BAD_REQUEST,
+          APP_ERROR_MESSAGE.passwordError
         );
       }
     },
@@ -47,7 +50,10 @@ const userSchema = new Schema<UserDocument, UserModel>({
     lowercase: true,
     validate(value: string) {
       if (!validator.isEmail(value)) {
-        throw new Error("Invalid email");
+        throw new HttpException(
+          HTTP_RESPONSE_CODE.BAD_REQUEST,
+          APP_ERROR_MESSAGE.invalidEmail
+        );
       }
     },
   },
@@ -106,12 +112,7 @@ const userSchema = new Schema<UserDocument, UserModel>({
 
 
 
-/**
- * Check if email is taken
- * @param {string} email - The user's email
- * @param {ObjectId} [excludeUserId] - The id of the user to be excluded
- * @returns {Promise<boolean>}
- */
+
 
 userSchema.statics.isEmailTaken = async function (
   email: string,
@@ -123,17 +124,21 @@ userSchema.statics.isEmailTaken = async function (
 
 
 
-/**
- * Check if password matches the user's password
- * @param {string} password
- * @returns {Promise<boolean>}
- */
+userSchema.statics.isUsernameTaken = async function (
+  username: string,
+  excludeUserId?: mongoose.Types.ObjectId
+): Promise<boolean> {
+  const user = await this.findOne({ username, _id: { $ne: excludeUserId } });
+  return !!user;
+};
+
+
 
 userSchema.methods.isPasswordMatch = async function (
   password: string
 ): Promise<boolean> {
   const user = this;
-  return bcrypt.compare(password, user.password);
+  return await bcrypt.compare(password, user.password);
 };
 
 

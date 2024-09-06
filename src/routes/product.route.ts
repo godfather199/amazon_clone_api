@@ -1,6 +1,6 @@
 import {Router} from 'express'
 import { validateAddProductRequest, validateProductById } from '../validations/product.validation'
-import { add_New_Product, featured_Products, product_By_Id, seller_Products } from '../controllers/product.controller'
+import { add_New_Product, category_Filter, featured_Products, product_By_Id, seller_Products } from '../controllers/product.controller'
 import multer from 'multer'
 
 
@@ -28,10 +28,12 @@ router.post(
 
 router.get('/seller-products', seller_Products)
 
+router.get('/category', category_Filter)
 
 router.get('/featured', featured_Products)
 
 router.get('/:productId', validateProductById, product_By_Id)
+
 
 
 export default router

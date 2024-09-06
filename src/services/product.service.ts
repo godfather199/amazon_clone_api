@@ -72,3 +72,22 @@ export const product_By_Id_Service = async (
     next(error)
   }
 };
+
+
+
+export const category_Filter_Service = async (category: string) => {
+  try {
+    let products
+
+    if(category === "All") {
+       products = await Product.find()
+    }
+    else {
+      products = await Product.find({category})
+    }
+
+    return products
+  } catch (error) {
+    throw error
+  }
+}

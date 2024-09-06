@@ -45,6 +45,10 @@ export type UserModel = Model<UserDocument> & {
     email: string,
     excludeUserId?: typeof ObjectId
   ): Promise<boolean>;
+  isUsernameTaken(
+    username: string,
+    excludeUserId?: typeof ObjectId
+  ): Promise<boolean>;
 };
 
 

@@ -73,61 +73,42 @@ export const update_User_Cart = async (
     try {
       const user_Cart: any = await get_User_Cart_Service(userId, next);
 
-      let response_Cart;
-      let cart_State;
+      const is_Product_Present = user_Cart.cartItems.find(
+        (item: any) => item.productId.toString() === productId?.toString()
+      );
 
-      if (!user_Cart) {
-        // response_Cart = await create_New_Cart(
-        //   userId,
-        //   productId,
-        //   quantity,
-        //   next
-        // );
-
-      } else {
-        const is_Product_Present = user_Cart.cartItems.find(
-          (item: any) => item.productId.toString() === productId?.toString()
+      
+      // If product exists in the cart increment/decrement its quantity
+      if(is_Product_Present) {
+        const updated_Cart = await update_Product_Quantity(
+          user_Cart,
+          productId,
+          quantity,
+          next
         );
 
-        // If product is already present in cart 
-        if (is_Product_Present) {
-          if (quantity === "0") {
-            response_Cart = await remove_Product_From_Cart(
-              user_Cart,
-              productId,
-              next
-            );
-          } else {
-            response_Cart = await update_Product_Quantity(
-              user_Cart,
-              productId,
-              quantity,
-              next
-            );
-          }
-          cart_State = "Updated";
-
-        } else {
-          // Add new product to the cart
-
-          user_Cart.cartItems.push({
-            productId,
-            quantity,
-          });
-
-          response_Cart = await update_Cart_Quantity_Service(user_Cart, next)
-
-          cart_State = "Updated";
-        }
+        return res.status(HttpStatusCode.SUCCESS).json({
+          msg: CART_RESPONSE_MESSAGE.updatedProductQuantity,
+          updated_Cart
+        })
       }
+      else {
+        // Add new product to the cart
+        user_Cart.cartItems.push({
+          productId,
+          quantity,
+        });
 
-      res.status(HttpStatusCode.SUCCESS).json({
-        msg:
-          cart_State === "Updated"
-            ? "Cart updated successfully"
-            : "New cart created",
-        response_Cart,
-      });
+        const updated_Cart = await update_Cart_Quantity_Service(
+          user_Cart,
+          next
+        );
+
+        return res.status(HttpStatusCode.SUCCESS).json({
+          msg: CART_RESPONSE_MESSAGE.productAdded,
+          updated_Cart
+        })
+      }
     } catch (error) {
         next(error)
     }
@@ -135,8 +116,47 @@ export const update_User_Cart = async (
 
 
 
+export const remove_Product_From_Cart = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const userId = new ObjectId("659a51451b67c886efd46d88");
+    const { productId } = req.body;
+
+    const user_Cart: CartType | null = await get_User_Cart_Service(userId, next)
+
+    user_Cart!.cartItems = user_Cart!.cartItems.filter(
+      (item) => item.productId.toString() !== productId.toString()
+    );
+
+    const response_Cart = await update_Cart_Quantity_Service(user_Cart, next);
+
+    return response_Cart;
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+
+export const delete_Cart = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    
+  } catch (error) {
+    
+  }
+};
+
+
+
  const update_Product_Quantity = async (
-   user_Cart: any,
+   user_Cart: CartType,
    productId: any,
    quantity: any,
    next: NextFunction
@@ -152,26 +172,18 @@ export const update_User_Cart = async (
      return item;
    });
 
-   const response_Cart = await update_Cart_Quantity_Service(user_Cart, next);
-
-   return response_Cart;
+   try {
+     const response_Cart = await update_Cart_Quantity_Service(user_Cart, next);
+  
+     return response_Cart;
+   } catch (error) {
+    next(error)
+   }
  };
 
 
 
- const remove_Product_From_Cart = async (
-   user_Cart: any,
-   productId: any,
-   next: NextFunction
- ) => {
-    user_Cart.cartItems = user_Cart.cartItems.filter(
-      (item: any) => item.productId.toString() !== productId.toString()
-    );
-
-    const response_Cart = await update_Cart_Quantity_Service(user_Cart, next);
-
-    return response_Cart
- };
+ 
 
 
 

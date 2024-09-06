@@ -34,13 +34,16 @@ export const HTTP_RESPONSE_CODE = {
     userDoesntExist: "User does not exist",
     eventDoesntExist: "Event does not exist",
     invalidCredentials: "Invalid user email or password",
-    invalidCredentialsExtended: "Invalid user username/email or password",
+    invalidCredentialsExtended: "Invalid email or password",
     invalidEmail: "Enter a valid email address",
+    emailUnavailable: "Email already taken",
     maxRequests: 'Too many reqests',
     itemUpdateSuccess: 'Item was updated successfully',
     itemDeleteSuccess: 'Item was deleted successfully',
     productError: 'Product Validation Error',
-    newProduct: 'New product created successfully'
+    newProduct: 'New product created successfully',
+    passwordError: "Password must contain at least one letter and one number",
+    loginSuccess: "User logged in successfully"
   };
   
 
