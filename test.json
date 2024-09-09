@@ -1,0 +1,137 @@
+{
+  "cart": {
+    "_id": "66dd2821136af89337d4beed",
+    "ownerId": "66d75100a2763d367ccab696",
+    "cartItems": [
+      {
+        "productId": {
+          "_id": "66c5d9a4957867fd8f768246",
+          "title": "Apple iPhone 15 (128 GB) - Black",
+          "description": "iPhone 15 features a durable color-infused glass and aluminum design. It’s splash, water, and dust resistant. The Ceramic Shield front is tougher than any smartphone glass. And the 6.1 Super Retina XDR display is up to 2x brighter in the sun compared to iPhone 14",
+          "price": 71290,
+          "productImages": [
+            {
+              "public_id": "Amazon/Amazon_Product_Image/eiivj56gibna6046pgmw",
+              "url": "https://res.cloudinary.com/dbhxlg7wx/image/upload/v1724242339/Amazon/Amazon_Product_Image/eiivj56gibna6046pgmw.webp",
+              "_id": "66c5d9a4957867fd8f768247"
+            },
+            {
+              "public_id": "Amazon/Amazon_Product_Image/z61gbprbuzovhps7y3q2",
+              "url": "https://res.cloudinary.com/dbhxlg7wx/image/upload/v1724242340/Amazon/Amazon_Product_Image/z61gbprbuzovhps7y3q2.jpg",
+              "_id": "66c5d9a4957867fd8f768248"
+            },
+            {
+              "public_id": "Amazon/Amazon_Product_Image/wcnfxt6owvs84moc0mad",
+              "url": "https://res.cloudinary.com/dbhxlg7wx/image/upload/v1724242339/Amazon/Amazon_Product_Image/wcnfxt6owvs84moc0mad.webp",
+              "_id": "66c5d9a4957867fd8f768249"
+            },
+            {
+              "public_id": "Amazon/Amazon_Product_Image/qyglzks62udiklm1dn0k",
+              "url": "https://res.cloudinary.com/dbhxlg7wx/image/upload/v1724242339/Amazon/Amazon_Product_Image/qyglzks62udiklm1dn0k.webp",
+              "_id": "66c5d9a4957867fd8f76824a"
+            }
+          ],
+          "seller": "659a51451b67c886efd46d98",
+          "deliveryCharges": 250,
+          "in_Stock": 6,
+          "feedback": [],
+          "activeOrders": [],
+          "fulfilledOrders": [],
+          "createdAt": "2024-08-21T12:12:20.663Z",
+          "updatedAt": "2024-08-21T12:12:20.663Z",
+          "__v": 0,
+          "category": "Mobile"
+        },
+        "quantity": 1,
+        "_id": "66dd2821136af89337d4beee"
+      },
+      {
+        "productId": {
+          "_id": "66c625306ec4403b2a1ce921",
+          "title": "TECHNOSPORT Mens Slim Fit Active Wear Gym Cotflex T-Shirt with Half Sleeves for Workout, Sports",
+          "description": "Pack Contains: 3 Oversized Solid T-Shirt. Pattern: Solid. Sleeve Type: Half Sleeve, Neck Type: Round Neck.More comfortable for your classic everyday look. Material: Pure Cotton",
+          "price": 799,
+          "productImages": [
+            {
+              "public_id": "Amazon/Amazon_Product_Image/duadgggj7lly40d5suzp",
+              "url": "https://res.cloudinary.com/dbhxlg7wx/image/upload/v1724261680/Amazon/Amazon_Product_Image/duadgggj7lly40d5suzp.jpg",
+              "_id": "66c625306ec4403b2a1ce922"
+            },
+            {
+              "public_id": "Amazon/Amazon_Product_Image/mzoyemeragtkg2oclzqe",
+              "url": "https://res.cloudinary.com/dbhxlg7wx/image/upload/v1724261678/Amazon/Amazon_Product_Image/mzoyemeragtkg2oclzqe.jpg",
+              "_id": "66c625306ec4403b2a1ce923"
+            },
+            {
+              "public_id": "Amazon/Amazon_Product_Image/efd6b5nxko28envsvz9f",
+              "url": "https://res.cloudinary.com/dbhxlg7wx/image/upload/v1724261681/Amazon/Amazon_Product_Image/efd6b5nxko28envsvz9f.jpg",
+              "_id": "66c625306ec4403b2a1ce924"
+            },
+            {
+              "public_id": "Amazon/Amazon_Product_Image/bcbgnrubygynifafrucl",
+              "url": "https://res.cloudinary.com/dbhxlg7wx/image/upload/v1724261680/Amazon/Amazon_Product_Image/bcbgnrubygynifafrucl.jpg",
+              "_id": "66c625306ec4403b2a1ce925"
+            }
+          ],
+          "seller": "659a51451b67c886efd46d98",
+          "deliveryCharges": 150,
+          "in_Stock": 4,
+          "feedback": [],
+          "activeOrders": [],
+          "fulfilledOrders": [],
+          "createdAt": "2024-08-21T17:34:40.986Z",
+          "updatedAt": "2024-08-21T17:34:40.986Z",
+          "__v": 0,
+          "category": "Men's Fashion"
+        },
+        "quantity": 1,
+        "_id": "66dd2835136af89337d4befa"
+      },
+      {
+        "productId": {
+          "_id": "66c6f09e3f799c8a77cd3747",
+          "title": "Lymio Track Pant for Men || Track Pants || Plain Track Pant (Track-06-08)",
+          "description": "Lymio Track Pant for Men is a awesome in comfort and fit to my body. Material is of durability and flexibility, Its working for workouts and casual wear &amp; running. The adjustable waistband ensures a personalized fit, and the deep pockets provide ample storage for essentials. Overall, I am highly recommend the Lymio Track Pant for Men for its comfort and grey color is awesome, versatility, and sleek",
+          "price": 1800,
+          "productImages": [
+            {
+              "public_id": "Amazon/Amazon_Product_Image/xgvtih2mqsnpettlsim6",
+              "url": "https://res.cloudinary.com/dbhxlg7wx/image/upload/v1724313756/Amazon/Amazon_Product_Image/xgvtih2mqsnpettlsim6.jpg",
+              "_id": "66c6f09e3f799c8a77cd3748"
+            },
+            {
+              "public_id": "Amazon/Amazon_Product_Image/gurfgc5grnj05c2zbsql",
+              "url": "https://res.cloudinary.com/dbhxlg7wx/image/upload/v1724313758/Amazon/Amazon_Product_Image/gurfgc5grnj05c2zbsql.jpg",
+              "_id": "66c6f09e3f799c8a77cd3749"
+            },
+            {
+              "public_id": "Amazon/Amazon_Product_Image/vus6us1iy01dikoocife",
+              "url": "https://res.cloudinary.com/dbhxlg7wx/image/upload/v1724313756/Amazon/Amazon_Product_Image/vus6us1iy01dikoocife.jpg",
+              "_id": "66c6f09e3f799c8a77cd374a"
+            },
+            {
+              "public_id": "Amazon/Amazon_Product_Image/dwcjpuempbygsstnsykn",
+              "url": "https://res.cloudinary.com/dbhxlg7wx/image/upload/v1724313757/Amazon/Amazon_Product_Image/dwcjpuempbygsstnsykn.jpg",
+              "_id": "66c6f09e3f799c8a77cd374b"
+            }
+          ],
+          "seller": "659a51451b67c886efd46d98",
+          "category": "Men's Fashion",
+          "deliveryCharges": 120,
+          "in_Stock": 7,
+          "feedback": [],
+          "activeOrders": [],
+          "fulfilledOrders": [],
+          "createdAt": "2024-08-22T08:02:38.732Z",
+          "updatedAt": "2024-08-22T08:02:38.732Z",
+          "__v": 0
+        },
+        "quantity": 1,
+        "_id": "66dd2851136af89337d4bf0a"
+      }
+    ],
+    "createdAt": "2024-09-08T04:29:21.725Z",
+    "updatedAt": "2024-09-08T04:30:09.977Z",
+    "__v": 0
+  }
+}

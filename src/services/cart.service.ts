@@ -6,7 +6,7 @@ import { CartType } from '../types/cart.type';
 
 
 export const get_User_Cart_Service = async (
-  userId: ObjectId,
+  userId: string,
   next: NextFunction
 ): Promise<CartType | null> => {
   try {
@@ -24,13 +24,18 @@ export const get_User_Cart_Service = async (
 export const create_New_Cart_Service = async (
   cart_Info: {},
   next: NextFunction
-): Promise<CartType | undefined> => {
+): Promise<CartType | null> => {
     try {
         const new_Cart: CartType = await Cart.create(cart_Info)
+
+        // if(!new_Cart) {
+        //   return null
+        // }
 
         return new_Cart
     } catch (error) {
         next(error)
+        return null
     }
 };
 
@@ -52,4 +57,21 @@ export const update_Cart_Quantity_Service = async (
     next(error);
   }
 };
+
+
+
+export const user_Cart_Service = async (userId: string) => {
+  try {
+    const cart = await Cart.findOne({ ownerId: userId })
+      .populate({
+        path: "cartItems.productId",
+        model: "product",
+      })
+      .sort({ createdAt: -1 });
+
+    return cart
+  } catch (error) {
+    throw error
+  }
+}
 

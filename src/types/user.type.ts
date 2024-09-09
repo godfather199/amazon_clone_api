@@ -1,4 +1,4 @@
-import { Document, Model, Schema } from "mongoose";
+import { Document, Model, Schema, Types } from "mongoose";
 
 
 const {ObjectId} = Schema.Types
@@ -25,7 +25,7 @@ export type UserType = {
     state: string;
     country: string;
   };
-  cart?: typeof ObjectId;
+  cart?: Types.ObjectId;
   orders?: {
     orderId: typeof ObjectId;
   }[];
@@ -50,5 +50,7 @@ export type UserModel = Model<UserDocument> & {
     excludeUserId?: typeof ObjectId
   ): Promise<boolean>;
 };
+
+
 
 

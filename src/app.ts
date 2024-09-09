@@ -3,6 +3,7 @@ import { errorHandler } from './middlewares/error.middleware'
 import routes from './routes'
 import cors from 'cors'
 import morgan from 'morgan'
+import cookieParser from 'cookie-parser'
 
 
 
@@ -19,6 +20,7 @@ app.use(morgan("dev"))
 // Middleware
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+app.use(cookieParser())
 app.use(
   cors({
     origin: "http://localhost:5173",

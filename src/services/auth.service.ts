@@ -12,7 +12,12 @@ import { UserType } from '../types/user.type';
     next: NextFunction
   ) => {
     try {
-      const user = await User.findOne({ email }).select("+password");
+      const user = await User.findOne({ email })
+        .select("+password")
+        .populate({
+          path: "cart",
+          select: "cartItems"
+        });
 
       if (!user || !(await user.isPasswordMatch(password))) {
         return next(
@@ -28,3 +33,6 @@ import { UserType } from '../types/user.type';
       next(error);
     }
   };
+
+
+ 

@@ -76,3 +76,15 @@ export const login_User = async (
 };
 
 
+
+export const logout = async (req: Request, res: Response, next: NextFunction) => {
+  res
+  .cookie("access_token_amazon", "", {
+    httpOnly: true,
+  })
+  .json({
+    msg: "Logout successfull"
+  });
+};
+
+

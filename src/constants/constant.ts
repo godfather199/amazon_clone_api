@@ -45,6 +45,13 @@ export const HTTP_RESPONSE_CODE = {
     passwordError: "Password must contain at least one letter and one number",
     loginSuccess: "User logged in successfully"
   };
+
+
+
+  export const JWT_ERROR = {
+    notAuthenicated: "Your are not authenticated",
+    notAuthorized: "You are not authorized"
+  };
   
 
 
